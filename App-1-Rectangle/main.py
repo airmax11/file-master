@@ -64,7 +64,6 @@ print("Rectangle Coordinates: ",
       gui_rectangle.point2.y)
 
 # Get point and area from user
-#Test
 user_point = GuiPoint(float(input("Guess x: ")), float(input("Guess y: ")))
 user_area = float(input("Guess rectangle area: "))
 

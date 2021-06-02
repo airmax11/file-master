@@ -13,5 +13,5 @@ flatmate_2 = Flatmates(flatmate_2_name_days[0], int(flatmate_2_name_days[1]))
 print(f"{flatmate_1_name_days[0]} pays: ", flatmate_1.pays(the_bill, flatmate_2))
 print(f"{flatmate_2_name_days[0]} pays: ", flatmate_2.pays(the_bill, flatmate_1))
 
-pdfReport = PdfReport("bill")
+pdfReport = PdfReport(f"{period}")
 pdfReport.generate_report(flatmate_1, flatmate_2, the_bill)

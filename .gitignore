@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 .idea
+App-2-Flatmates-Bill/files/*.pdf

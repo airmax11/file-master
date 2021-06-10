@@ -1,7 +1,7 @@
 h2 {
-    color: darkgrey;
-    text-align: center;
+    color: brown;
     font-size: 50px;
+    text-align: center;
 }
 
 input[type=text] {
@@ -10,17 +10,16 @@ input[type=text] {
     margin: 10px 0;
 }
 
-input[type=submit]{
+input[type=submit] {
     width: 100%;
-    background-color: YellowGreen;
-    color: White;
-    padding: 12px 12px;
+    background-color: yellowgreen;
+    color: aliceblue;
+    padding: 12px;
     border: none;
     border-radius: 6px;
-
 }
 
 body {
-    background-color: GhostWhite;
-    padding: 20px;
+    background-color: ghostwhite;
+    padding: 12px;
 }

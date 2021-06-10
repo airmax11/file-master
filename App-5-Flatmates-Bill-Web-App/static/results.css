@@ -1,0 +1,19 @@
+body {
+    background-color: ghostwhite;
+    padding: 12px;
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    color: brown;
+}
+
+div{
+    height:100px;
+    width:200px;
+    border:2px solid brown;
+    margin: auto;
+}
+

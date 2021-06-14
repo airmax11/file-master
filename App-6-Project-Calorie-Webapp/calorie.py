@@ -7,4 +7,4 @@ class Calorie:
         self.weight = weight
 
     def calculate(self):
-        pass
+        return 10 * self.weight + 6.25 * self.height - 5 * self.age + 5 - 10 * self.temperature

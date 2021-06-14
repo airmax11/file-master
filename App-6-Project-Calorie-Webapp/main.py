@@ -1,7 +1,10 @@
 from flask.views import MethodView
-from wtforms import Form, StringField, SubmitField
+from wtforms import Form, StringField, SubmitField, RadioField
 
 from flask import Flask, render_template, request
+
+from temperature import Temperature
+from calorie import Calorie
 
 app = Flask(__name__)
 
@@ -17,26 +20,21 @@ class CaloriesCalcFormPage(MethodView):
         calc_form = CaloriesCalcForm()
         return render_template("calc.html", calcform=calc_form)
 
-
-class ResultsPage(MethodView):
-
     def post(self):
         calcform = CaloriesCalcForm(request.form)
         weight = float(calcform.weight.data)
         height = float(calcform.height.data)
+        age = float(calcform.age.data)
+        city = calcform.city.data
+        country = calcform.country.data
+        the_temperature = Temperature(country, city).get()
 
-        # the_bill = Bill(amount, period)
-        #
-        # name_1 = calcform.name1.data
-        # name_1_dates_in_house = float(calcform.days_in_house_1.data)
-        # flatmate_1 = Flatmates(name_1, name_1_dates_in_house)
-        #
-        # name_2 = calcform.name2.data
-        # name_2_dates_in_house = float(calcform.days_in_house_2.data)
-        # flatmate_2 = Flatmates(name_2, name_2_dates_in_house)
-        #
-        # return render_template("results.html", name1=flatmate_1.name, amount1=flatmate_1.pays(the_bill, flatmate_2),
-        #                        name2=flatmate_2.name, amount2=flatmate_2.pays(the_bill, flatmate_1))
+        if isinstance(the_temperature, str):
+            required_cal = "Incorrect city or country or other error."
+        else:
+            required_cal = f"The user required: {Calorie(weight, height, age, the_temperature).calculate()}"
+
+        return render_template("calc.html", calcform=calcform, required_calories=required_cal)
 
 
 class CaloriesCalcForm(Form):
@@ -44,8 +42,7 @@ class CaloriesCalcForm(Form):
     height = StringField("Height (sm):", default=170)
     age = StringField("Age:", default=30)
     city = StringField("City:", default='New-York')
-    age = StringField("Country:", default='USA')
-
+    country = StringField("Country:", default='USA')
     button = SubmitField("Calculate")
 
 

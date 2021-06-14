@@ -11,13 +11,19 @@
 <p>Lets get some info about you first.</p>
 
 <form action="/calorie_calc" method="post">
-<p>
     {{ calcform.weight.label }} {{ calcform.weight }} <br>
     {{ calcform.height.label }} {{ calcform.height }} <br>
+    {{ calcform.age.label }} {{ calcform.age }} <br>
+    {{ calcform.city.label }} {{ calcform.city }} <br>
+    {{ calcform.country.label }} {{ calcform.country }} <br>
+    <hr>
 
     <input type="radio" name="options" id="option1"> Men
     <input type="radio" name="options" id="option2"> Women
-</p>
+
+    {{ calcform.button }}
+    <hr>
+    {{required_calories}}
 
 </form>
 </body>
